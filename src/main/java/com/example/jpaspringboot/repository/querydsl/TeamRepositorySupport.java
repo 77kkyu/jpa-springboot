@@ -25,4 +25,11 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
                 .fetch();
     }
 
+    public long updateTeam(String name, Long id) {
+        return jpaQueryFactory.update(team)
+                .set(team.name, name)
+                .where(team.id.eq(id))
+                .execute();
+    }
+
 }

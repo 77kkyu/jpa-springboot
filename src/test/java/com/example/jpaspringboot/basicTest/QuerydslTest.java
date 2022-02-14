@@ -5,6 +5,7 @@ import com.example.jpaspringboot.repository.querydsl.TeamRepositorySupport;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,13 @@ public class QuerydslTest {
     public void Querydsl조회테스트() { // Querydsl 동작확인
         List<Team> teams = teamRepositorySupport.findName("devTeam");
         teams.forEach(e -> System.out.println("findName : "+e.getName()));
+    }
+
+    @Transactional
+    @Test
+    public void 업데이트() {
+        Long update = teamRepositorySupport.updateTeam("dev1", 3L);
+        System.out.println(update);
     }
 
 }

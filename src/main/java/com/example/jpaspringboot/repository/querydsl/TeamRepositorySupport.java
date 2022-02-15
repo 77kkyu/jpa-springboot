@@ -32,4 +32,10 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
                 .execute();
     }
 
+    public Team findTeam(Long teamId) {
+        return jpaQueryFactory.selectFrom(team)
+                .where(team.id.eq(teamId))
+                .fetchOne();
+    }
+
 }

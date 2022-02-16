@@ -30,4 +30,10 @@ public class QuerydslTest {
         System.out.println(update);
     }
 
+    @Test
+    public void id조회() {
+        Team findTeam = teamRepositorySupport.findTeam(3L);
+        System.out.println(findTeam.getName());
+    }
+
 }

@@ -30,10 +30,13 @@ public class QuerydslTest {
         System.out.println(update);
     }
 
+    @Transactional
     @Test
     public void id조회() {
         Team findTeam = teamRepositorySupport.findTeam(3L);
-        System.out.println(findTeam.getName());
+        System.out.println("findTeamName : " + findTeam.getName());
+        findTeam.getMembers().stream()
+                .forEach( e -> System.out.println("members userName : " + e.getUserName()));
     }
 
 }

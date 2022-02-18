@@ -38,4 +38,10 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
                 .fetchOne();
     }
 
+    public long deleteTeam(Long teamId) {
+        return jpaQueryFactory.delete(team)
+                .where(team.id.eq(teamId))
+                .execute();
+    }
+
 }

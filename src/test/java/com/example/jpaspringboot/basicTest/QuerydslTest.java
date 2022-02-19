@@ -39,4 +39,9 @@ public class QuerydslTest {
                 .forEach( e -> System.out.println("members userName : " + e.getUserName()));
     }
 
+    @Test
+    public void 삭제() {
+        Long deleteTeam = teamRepositorySupport.deleteTeam(3L);
+    }
+
 }

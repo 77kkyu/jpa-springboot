@@ -25,14 +25,14 @@ public class QuerydslTest {
 
     @Transactional
     @Test
-    public void 업데이트() {
+    public void 업데이트() { // id조건으로 업데이트
         Long update = teamRepositorySupport.updateTeam("dev1", 3L);
         System.out.println(update);
     }
 
     @Transactional
     @Test
-    public void id조회() {
+    public void id조회() { // 조회 및 하위 테이블 조회
         Team findTeam = teamRepositorySupport.findTeam(3L);
         System.out.println("findTeamName : " + findTeam.getName());
         findTeam.getMembers().stream()
@@ -40,7 +40,7 @@ public class QuerydslTest {
     }
 
     @Test
-    public void 삭제() {
+    public void 삭제() { // id로 삭제
         Long deleteTeam = teamRepositorySupport.deleteTeam(3L);
     }
 

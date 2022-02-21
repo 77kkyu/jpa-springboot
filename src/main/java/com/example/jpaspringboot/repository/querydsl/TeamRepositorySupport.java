@@ -44,4 +44,12 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
                 .execute();
     }
 
+    public List<Team> findTeamOrderBy(String name) {
+        return jpaQueryFactory.selectFrom(team)
+                .where(team.name.eq(name))
+                .orderBy(team.id.asc())
+                .fetch();
+    }
+
+
 }

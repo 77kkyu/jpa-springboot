@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 import static com.example.jpaspringboot.entity.QTeam.team;
+import static com.example.jpaspringboot.entity.QMember.member;
 
 @Repository
 public class TeamRepositorySupport extends QuerydslRepositorySupport {
@@ -48,6 +49,13 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
         return jpaQueryFactory.selectFrom(team)
                 .where(team.name.eq(name))
                 .orderBy(team.id.asc())
+                .fetch();
+    }
+
+    public List<Team> joinTest() {
+        return jpaQueryFactory.select(team)
+                .join(member)
+                .where(team.id.eq(member.team.id))
                 .fetch();
     }
 

@@ -55,7 +55,7 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
     public List<Team> joinTest() {
         return jpaQueryFactory.select(team)
                 .join(member)
-                .where(team.id.eq(member.team.id))
+                .where(team.id.eq(3L), team.id.eq(member.team.id))
                 .fetch();
     }
 

@@ -44,4 +44,11 @@ public class QuerydslTest {
         Long deleteTeam = teamRepositorySupport.deleteTeam(3L);
     }
 
+    @Test
+    public void 조인() {
+        List<Team> teams = teamRepositorySupport.joinTest();
+        System.out.println("members1: " + teams.get(0).getMembers().get(0).getUserName());
+        System.out.println("members2 : " + teams.get(0).getMembers().get(1).getUserName());
+    }
+
 }

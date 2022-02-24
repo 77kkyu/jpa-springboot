@@ -1,6 +1,7 @@
 package com.example.jpaspringboot.repository.querydsl;
 
 import com.example.jpaspringboot.entity.Team;
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
@@ -57,6 +58,16 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
                 .join(member)
                 .where(team.id.eq(3L), team.id.eq(member.team.id))
                 .fetch();
+    }
+
+    public Team findByTeam(Long teamId) {
+        BooleanBuilder builder = new BooleanBuilder();
+        if (teamId == null) {
+            builder.and(team.id.eq(3L));
+        }
+        return jpaQueryFactory.selectFrom(team)
+                .where(builder)
+                .fetchOne();
     }
 
 

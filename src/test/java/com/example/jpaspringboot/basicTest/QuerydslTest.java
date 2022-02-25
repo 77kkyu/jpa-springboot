@@ -51,4 +51,10 @@ public class QuerydslTest {
         System.out.println("members2 : " + teams.get(0).getMembers().get(1).getUserName());
     }
 
+    @Test
+    public void 빌더테스트() {
+        Team teams = teamRepositorySupport.findByTeam(3L);
+        System.out.println(teams.getName());
+    }
+
 }

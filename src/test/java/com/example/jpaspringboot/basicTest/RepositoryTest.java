@@ -38,10 +38,8 @@ public class RepositoryTest {
 
     @Test
     public void 조회테스트() {
-
         Optional<Team> team = teamRepository.findById(3L);
         System.out.println("getName : " + team.get().getName());
-
     }
 
 }

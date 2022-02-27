@@ -55,7 +55,7 @@ public class QuerydslTest {
     public void 빌더테스트() {
         Team teams = teamRepositorySupport.findByTeam(3L);
         assertThat(teams.getId()).isNotNull();
-        System.out.println(teams.getName());
+        assertThat(teams.getName()).isEqualTo("dev1");
     }
 
 }

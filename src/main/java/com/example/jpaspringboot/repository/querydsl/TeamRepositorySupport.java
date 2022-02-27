@@ -70,5 +70,4 @@ public class TeamRepositorySupport extends QuerydslRepositorySupport {
                 .fetchOne();
     }
 
-
 }

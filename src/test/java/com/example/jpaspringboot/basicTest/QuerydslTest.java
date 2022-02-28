@@ -47,6 +47,7 @@ public class QuerydslTest {
     @Test
     public void 조인() {
         List<Team> teams = teamRepositorySupport.joinTest();
+        teams.stream().forEach(e -> System.out.println(e.getMembers()));
         System.out.println("members1: " + teams.get(0).getMembers().get(0).getUserName());
         System.out.println("members2 : " + teams.get(0).getMembers().get(1).getUserName());
     }

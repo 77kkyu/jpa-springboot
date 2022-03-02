@@ -5,6 +5,8 @@ import com.example.jpaspringboot.repository.querydsl.TeamRepositorySupport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class TeamService {
@@ -13,7 +15,12 @@ public class TeamService {
 
     public Team getTeam(Long id) {
         Team team = teamRepositorySupport.findTeam(id);
-        return team;
+        Optional<Team> optionalTeam = Optional.ofNullable(teamRepositorySupport.findTeam(id));
+        if (optionalTeam.isPresent()) {
+            return team;
+        }else { // 에러 처리 해야함
+            return team;
+        }
     }
 
 }

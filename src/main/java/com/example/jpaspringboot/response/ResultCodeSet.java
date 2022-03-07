@@ -2,7 +2,10 @@ package com.example.jpaspringboot.response;
 
 public enum ResultCodeSet {
 
-    SUCCESS_COMMON(200, "Success"),
+    SUCCESS_COMMON(200, "SUCCESS"),
+
+
+    FAIL(420, "FAIL")
     ;
 
     public int code;

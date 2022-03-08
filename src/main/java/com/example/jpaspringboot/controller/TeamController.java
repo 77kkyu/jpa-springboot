@@ -16,7 +16,7 @@ public class TeamController {
 
     @GetMapping("/test/getTeam")
     public ResponseMessage getTeam(Long id) {
-        return new ResponseMessage(ResultCodeSet.SUCCESS_COMMON, teamService.getTeam(id));
+        return teamService.getTeam(id);
     }
 
 }

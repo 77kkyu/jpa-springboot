@@ -1,5 +1,6 @@
 package com.example.jpaspringboot.service;
 
+import com.example.jpaspringboot.dto.TeamDto;
 import com.example.jpaspringboot.entity.Team;
 import com.example.jpaspringboot.repository.querydsl.TeamRepositorySupport;
 import com.example.jpaspringboot.response.ResponseMessage;
@@ -19,7 +20,11 @@ public class TeamService {
         Team team = teamRepositorySupport.findTeam(id);
         Optional<Team> optionalTeam = Optional.ofNullable(teamRepositorySupport.findTeam(id));
         if (optionalTeam.isPresent()) {
-            return new ResponseMessage(ResultCodeSet.SUCCESS_COMMON, team);
+            TeamDto teamDto = TeamDto.builder()
+                    .id(optionalTeam.get().getId())
+                    .name(optionalTeam.get().getName())
+                    .build();
+            return new ResponseMessage(ResultCodeSet.SUCCESS_COMMON, teamDto);
         }else { // 에러 처리 해야함
             return new ResponseMessage(ResultCodeSet.FAIL, team);
         }

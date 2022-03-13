@@ -3,6 +3,8 @@ package com.example.jpaspringboot.basicTest;
 import com.example.jpaspringboot.entity.Member;
 import com.example.jpaspringboot.entity.Team;
 import com.example.jpaspringboot.repository.TeamRepository;
+import com.example.jpaspringboot.response.ResponseMessage;
+import com.example.jpaspringboot.service.TeamService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,9 @@ public class RepositoryTest {
 
     @Autowired
     private TeamRepository teamRepository;
+
+    @Autowired
+    private TeamService teamService;
 
     @Test
     public void 등록테스트() {
@@ -40,6 +45,13 @@ public class RepositoryTest {
     public void 조회테스트() {
         Optional<Team> team = teamRepository.findById(3L);
         System.out.println("getName : " + team.get().getName());
+    }
+
+    @Test
+    public void 팀조회테스트() {
+        ResponseMessage responseMessage = teamService.getTeam(3L);
+        System.out.println("responseMessage : " + responseMessage.getMessage());
+
     }
 
 }

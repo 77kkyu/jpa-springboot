@@ -1,5 +1,6 @@
 package com.example.jpaspringboot.basicTest;
 
+import com.example.jpaspringboot.dto.TeamDto;
 import com.example.jpaspringboot.entity.Member;
 import com.example.jpaspringboot.entity.Team;
 import com.example.jpaspringboot.repository.TeamRepository;
@@ -50,7 +51,10 @@ public class RepositoryTest {
     @Test
     public void 팀조회테스트() {
         ResponseMessage responseMessage = teamService.getTeam(3L);
+        assertThat(responseMessage.getMessage()).isNotNull();
+        assertThat(responseMessage.getStatus()).isEqualTo(200);
         System.out.println("responseMessage : " + responseMessage.getMessage());
+        System.out.println("teamDto : " + responseMessage.getData().toString());
 
     }
 

@@ -2,7 +2,6 @@ package com.example.jpaspringboot.service;
 
 import com.example.jpaspringboot.dto.MemberDto;
 import com.example.jpaspringboot.dto.TeamDto;
-import com.example.jpaspringboot.entity.Member;
 import com.example.jpaspringboot.entity.Team;
 import com.example.jpaspringboot.repository.querydsl.TeamRepositorySupport;
 import com.example.jpaspringboot.response.ResponseMessage;

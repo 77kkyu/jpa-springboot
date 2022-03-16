@@ -1,6 +1,7 @@
 package com.example.jpaspringboot.basicTest;
 
 import com.example.jpaspringboot.entity.Team;
+import com.example.jpaspringboot.repository.TeamRepository;
 import com.example.jpaspringboot.repository.querydsl.TeamRepositorySupport;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
@@ -16,6 +18,9 @@ public class QuerydslTest {
 
     @Autowired
     private TeamRepositorySupport teamRepositorySupport;
+
+    @Autowired
+    private TeamRepository teamRepository;
 
     @Test
     public void Querydsl조회테스트() { // Querydsl 동작확인
@@ -57,6 +62,12 @@ public class QuerydslTest {
         Team teams = teamRepositorySupport.findByTeam(3L);
         assertThat(teams.getId()).isNotNull();
         assertThat(teams.getName()).isEqualTo("dev1");
+    }
+
+    @Test
+    public void 조회테스트() {
+        Optional<Team> team = teamRepository.findById(3L);
+        System.out.println("getName : " + team.get().getName());
     }
 
 }

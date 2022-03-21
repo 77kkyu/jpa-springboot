@@ -20,24 +20,31 @@ public class TeamService {
     private final TeamRepositorySupport teamRepositorySupport;
 
     public ResponseMessage getTeam(Long id) {
-        Team team = teamRepositorySupport.findTeam(id);
-        Optional<Team> optionalTeam = Optional.ofNullable(teamRepositorySupport.findTeam(id));
-        if (optionalTeam.isPresent()) {
-            List<MemberDto> members = new ArrayList<>();
-            for (int i=0; i<optionalTeam.get().getMembers().size(); i++) {
-                members.add(MemberDto.builder()
-                        .id(optionalTeam.get().getMembers().get(i).getId())
-                        .userName(optionalTeam.get().getMembers().get(i).getUserName())
-                        .build());
+
+        try {
+
+            Team team = teamRepositorySupport.findTeam(id);
+            Optional<Team> optionalTeam = Optional.ofNullable(teamRepositorySupport.findTeam(id));
+            if (optionalTeam.isPresent()) {
+                List<MemberDto> members = new ArrayList<>();
+                for (int i=0; i<optionalTeam.get().getMembers().size(); i++) {
+                    members.add(MemberDto.builder()
+                            .id(optionalTeam.get().getMembers().get(i).getId())
+                            .userName(optionalTeam.get().getMembers().get(i).getUserName())
+                            .build());
+                }
+                TeamDto teamDto = TeamDto.builder()
+                        .id(optionalTeam.get().getId())
+                        .name(optionalTeam.get().getName())
+                        .members(members)
+                        .build();
+                return new ResponseMessage(ResultCodeSet.SUCCESS_COMMON, teamDto);
+            }else { // 에러 처리 해야함
+                return new ResponseMessage(ResultCodeSet.FAIL, team);
             }
-            TeamDto teamDto = TeamDto.builder()
-                    .id(optionalTeam.get().getId())
-                    .name(optionalTeam.get().getName())
-                    .members(members)
-                    .build();
-            return new ResponseMessage(ResultCodeSet.SUCCESS_COMMON, teamDto);
-        }else { // 에러 처리 해야함
-            return new ResponseMessage(ResultCodeSet.FAIL, team);
+
+        } catch (Exception e) {
+            return new ResponseMessage(ResultCodeSet.FAIL);
         }
     }
 

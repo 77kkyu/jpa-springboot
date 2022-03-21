@@ -19,6 +19,11 @@ public class ResponseMessage {
         this.data = data;
     }
 
+    public ResponseMessage(ResultCodeSet resultCodeSet) {
+        this.status = resultCodeSet.code;
+        this.message = resultCodeSet.message;
+    }
+
 
 
 }

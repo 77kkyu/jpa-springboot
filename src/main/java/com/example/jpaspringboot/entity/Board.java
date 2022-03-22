@@ -22,4 +22,8 @@ public class Board {
     @Column(name = "USER_ID")
     private Long userId;
 
+    private String title;
+
+    private String contents;
+
 }

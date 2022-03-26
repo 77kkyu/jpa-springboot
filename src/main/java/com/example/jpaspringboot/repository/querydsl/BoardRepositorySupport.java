@@ -1,5 +1,6 @@
 package com.example.jpaspringboot.repository.querydsl;
 
+import com.example.jpaspringboot.entity.Board;
 import com.example.jpaspringboot.entity.Team;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;

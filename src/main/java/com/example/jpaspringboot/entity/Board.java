@@ -1,12 +1,10 @@
 package com.example.jpaspringboot.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+@ToString
 @Builder
 @Getter
 @NoArgsConstructor
@@ -25,5 +23,9 @@ public class Board {
     private String title;
 
     private String contents;
+
+    @Column(name = "AUTH_CODE")
+    @Enumerated(EnumType.STRING)
+    private AuthCode authCode;
 
 }

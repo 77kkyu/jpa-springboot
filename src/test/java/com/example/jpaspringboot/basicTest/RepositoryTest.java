@@ -1,6 +1,6 @@
 package com.example.jpaspringboot.basicTest;
 
-import com.example.jpaspringboot.dto.TeamDto;
+import com.example.jpaspringboot.entity.Board;
 import com.example.jpaspringboot.entity.Member;
 import com.example.jpaspringboot.entity.Team;
 import com.example.jpaspringboot.repository.TeamRepository;

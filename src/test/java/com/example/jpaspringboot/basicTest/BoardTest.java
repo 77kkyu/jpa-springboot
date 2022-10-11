@@ -1,7 +1,7 @@
 package com.example.jpaspringboot.basicTest;
 
-import com.example.jpaspringboot.entity.AuthCode;
-import com.example.jpaspringboot.entity.Board;
+import com.example.jpaspringboot.domain.AuthCode;
+import com.example.jpaspringboot.domain.Board;
 import com.example.jpaspringboot.repository.BoardRepository;
 import com.example.jpaspringboot.repository.querydsl.BoardRepositorySupport;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -43,10 +42,7 @@ public class BoardTest {
     public void enumFindTest() {
 //        Optional<Board> board = boardRepository.findById(1L);
 //        System.out.println(board.get().toString());
-
         List<Board> findEnum = boardRepository.findAllByAuthCode(AuthCode.A);
         findEnum.stream().forEach(e -> System.out.println("데이터 : " + e.toString()));
-
     }
-
 }

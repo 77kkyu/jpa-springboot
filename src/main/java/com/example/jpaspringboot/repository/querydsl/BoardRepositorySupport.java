@@ -1,7 +1,6 @@
 package com.example.jpaspringboot.repository.querydsl;
 
-import com.example.jpaspringboot.entity.Board;
-import com.example.jpaspringboot.entity.Team;
+import com.example.jpaspringboot.domain.Team;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.dsl.Expressions;
@@ -10,7 +9,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
-import static com.example.jpaspringboot.entity.QBoard.board;
+import static com.example.jpaspringboot.domain.QBoard.board;
 
 @Repository
 public class BoardRepositorySupport extends QuerydslRepositorySupport {

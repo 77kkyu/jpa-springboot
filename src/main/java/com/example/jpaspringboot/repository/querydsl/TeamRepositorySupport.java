@@ -1,6 +1,6 @@
 package com.example.jpaspringboot.repository.querydsl;
 
-import com.example.jpaspringboot.entity.Team;
+import com.example.jpaspringboot.domain.Team;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.example.jpaspringboot.entity.QTeam.team;
-import static com.example.jpaspringboot.entity.QMember.member;
+import static com.example.jpaspringboot.domain.QTeam.team;
+import static com.example.jpaspringboot.domain.QMember.member;
 
 @Repository
 public class TeamRepositorySupport extends QuerydslRepositorySupport {

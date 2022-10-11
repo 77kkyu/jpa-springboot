@@ -1,7 +1,7 @@
 package com.example.jpaspringboot.repository;
 
-import com.example.jpaspringboot.entity.AuthCode;
-import com.example.jpaspringboot.entity.Board;
+import com.example.jpaspringboot.domain.AuthCode;
+import com.example.jpaspringboot.domain.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

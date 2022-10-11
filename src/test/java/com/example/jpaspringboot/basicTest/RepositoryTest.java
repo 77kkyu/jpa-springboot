@@ -1,8 +1,7 @@
 package com.example.jpaspringboot.basicTest;
 
-import com.example.jpaspringboot.entity.Board;
-import com.example.jpaspringboot.entity.Member;
-import com.example.jpaspringboot.entity.Team;
+import com.example.jpaspringboot.domain.Member;
+import com.example.jpaspringboot.domain.Team;
 import com.example.jpaspringboot.repository.TeamRepository;
 import com.example.jpaspringboot.response.ResponseMessage;
 import com.example.jpaspringboot.service.TeamService;

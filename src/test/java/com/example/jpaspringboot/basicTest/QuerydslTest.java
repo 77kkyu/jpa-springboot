@@ -1,11 +1,10 @@
 package com.example.jpaspringboot.basicTest;
 
-import com.example.jpaspringboot.entity.Team;
+import com.example.jpaspringboot.domain.Team;
 import com.example.jpaspringboot.repository.TeamRepository;
 import com.example.jpaspringboot.repository.querydsl.TeamRepositorySupport;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
